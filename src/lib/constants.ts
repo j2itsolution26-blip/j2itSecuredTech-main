@@ -78,7 +78,7 @@ export const COMPANY_INFO = {
  * band on the home page. Kept here so both surfaces stay identical.
  */
 export const COMMITMENT = {
-  headline: "We don't just provide technology—we provide solutions.",
+  headline: `At ${COMPANY_INFO.name}, we don’t just provide technology—we provide solutions.`,
   body: 'We combine software development, IT infrastructure, networking, cybersecurity, IoT, and electronics expertise to deliver technology solutions that are practical, secure, scalable, and tailored to our clients’ needs.',
   scope:
     'Whether you are looking to develop a customized system, build a secure network, protect your organization from cyber threats, install a CCTV system, automate a process, repair electronic equipment, or train your personnel, J2 SecureTech is ready to help turn your technology needs into effective solutions.',

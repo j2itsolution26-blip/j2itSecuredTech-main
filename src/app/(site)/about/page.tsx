@@ -157,7 +157,7 @@ export default async function AboutPage() {
               id="our-commitment"
               className="mt-5 font-heading text-3xl font-bold text-foreground sm:text-4xl"
             >
-              At {COMPANY_INFO.name}, {COMMITMENT.headline}
+              {COMMITMENT.headline}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted">{COMMITMENT.body}</p>
             <p className="mt-4 text-base leading-relaxed text-muted">{COMMITMENT.scope}</p>
