@@ -1,0 +1,6 @@
+-- AlterEnum
+ALTER TYPE "ServiceCategory" ADD VALUE 'IOT';
+ALTER TYPE "ServiceCategory" ADD VALUE 'CYBERSECURITY';
+ALTER TYPE "ServiceCategory" ADD VALUE 'TELEPHONY';
+ALTER TYPE "ServiceCategory" ADD VALUE 'ELECTRONICS';
+ALTER TYPE "ServiceCategory" ADD VALUE 'TRAINING';
