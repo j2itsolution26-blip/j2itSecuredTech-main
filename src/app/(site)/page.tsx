@@ -9,6 +9,7 @@ import { FeaturedPortfolio } from '@/components/sections/FeaturedPortfolio';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { LatestPosts } from '@/components/sections/LatestPosts';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { CommitmentBand } from '@/components/sections/CommitmentBand';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { getFeaturedServices } from '@/lib/data/services';
@@ -27,7 +28,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = buildMetadata({
   title: 'Enterprise Technology Solutions for Modern Businesses',
   description:
-    'J2 SecureTech delivers enterprise software, IoT and automation, networks and cybersecurity, CCTV and biometric security, telephone systems, electronics repair, cloud services and TESDA technical training for organisations across the Philippines.',
+    'J2 SecureTech delivers software and system development, IoT and automation, IT infrastructure and networking, cybersecurity, CCTV and security systems, telephone systems, electronics repair and TESDA technical training for organisations across the Philippines.',
   path: '/',
 });
 
@@ -59,6 +60,7 @@ export default async function HomePage() {
       <TestimonialsSection testimonials={testimonials} />
       <LatestPosts posts={posts} />
       <FAQSection faqs={faqs} />
+      <CommitmentBand />
       <CallToAction phone={settings['contact.phone']} />
     </>
   );

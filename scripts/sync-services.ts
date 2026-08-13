@@ -13,7 +13,7 @@
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
-import { SERVICES } from '../prisma/seed-data';
+import { RETIRED_SLUGS, SERVICES } from '../prisma/seed-data';
 
 async function main() {
   const connectionString = process.env.DATABASE_URL;
@@ -27,8 +27,6 @@ async function main() {
   const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString }) });
 
   try {
-    const before = await prisma.service.count();
-
     for (const service of SERVICES) {
       await prisma.service.upsert({
         where: { slug: service.slug },
@@ -38,8 +36,23 @@ async function main() {
       console.log(`  ✓ ${service.slug}`);
     }
 
+    // Deactivated rather than deleted: the records, their audit history and any
+    // inbound links survive, and an administrator can republish from the console.
+    const retired = await prisma.service.updateMany({
+      where: { slug: { in: RETIRED_SLUGS } },
+      data: { isActive: false },
+    });
+
+    for (const slug of RETIRED_SLUGS) {
+      console.log(`  – ${slug} (retired)`);
+    }
+
     const after = await prisma.service.count();
-    console.log(`\n${SERVICES.length} services synced. Catalogue went from ${before} to ${after} rows.\n`);
+    const published = await prisma.service.count({ where: { isActive: true } });
+    console.log(
+      `\n${SERVICES.length} services synced, ${retired.count} retired. ` +
+        `${published} of ${after} rows are now published.\n`,
+    );
   } catch (error) {
     console.error('\nSync failed:');
     console.error(error instanceof Error ? error.message : error, '\n');

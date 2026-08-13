@@ -64,7 +64,7 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ marginTop: 32, color: '#94a3b8', fontSize: 26, maxWidth: 880 }}>
-          Software · Websites · CCTV & Biometrics · Networks · Cloud · Managed Support
+          Software · IoT · Networks · Cybersecurity · CCTV · Electronics · Training
         </div>
       </div>
     ),

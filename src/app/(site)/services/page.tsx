@@ -19,22 +19,23 @@ export const dynamic = 'force-dynamic';
 export const metadata = buildMetadata({
   title: 'IT Services & Solutions',
   description:
-    'Software development, IoT and automation, networking and cybersecurity, CCTV and biometric security, telephone systems, electronics repair, cloud, IT consultancy and TESDA technical training from J2 SecureTech.',
+    'Software and system development, IoT and automation, IT infrastructure and networking, cybersecurity, CCTV and security systems, telephone and communication systems, electronics and board-level repair, technology training and TESDA programmes from J2 SecureTech.',
   path: '/services',
 });
 
+/**
+ * Display order for the published catalogue. WEBSITE, CLOUD, CONSULTING and
+ * SUPPORT remain in the enum for historical records but carry no published
+ * services; groups with no items are filtered out below.
+ */
 const CATEGORY_ORDER: ServiceCategory[] = [
   ServiceCategory.SOFTWARE,
-  ServiceCategory.WEBSITE,
   ServiceCategory.IOT,
   ServiceCategory.NETWORK,
   ServiceCategory.CYBERSECURITY,
   ServiceCategory.SECURITY,
   ServiceCategory.TELEPHONY,
   ServiceCategory.ELECTRONICS,
-  ServiceCategory.CLOUD,
-  ServiceCategory.CONSULTING,
-  ServiceCategory.SUPPORT,
   ServiceCategory.TRAINING,
 ];
 

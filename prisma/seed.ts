@@ -11,7 +11,7 @@ import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import bcrypt from 'bcryptjs';
 import { EmploymentType, UserRole } from '@prisma/client';
-import { IMAGES, SERVICES } from './seed-data';
+import { IMAGES, RETIRED_SLUGS, SERVICES } from './seed-data';
 
 const connectionString = process.env.DATABASE_URL;
 
@@ -838,7 +838,14 @@ async function main() {
       create: { ...service, isActive: true },
     });
   }
-  console.log(`  ✓ ${SERVICES.length} services`);
+
+  // Retired services are deactivated rather than deleted so their records and
+  // audit history survive; the public site filters on isActive.
+  const retired = await prisma.service.updateMany({
+    where: { slug: { in: RETIRED_SLUGS } },
+    data: { isActive: false },
+  });
+  console.log(`  ✓ ${SERVICES.length} services (${retired.count} retired)`);
 
   for (const industry of INDUSTRIES) {
     await prisma.industry.upsert({

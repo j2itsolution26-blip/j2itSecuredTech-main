@@ -10,7 +10,7 @@ export const COMPANY_INFO = {
   tagline: 'Innovate. Secure. Empower.',
   fullTagline: 'Innovating Technology. Securing Systems. Empowering People.',
   description:
-    'J2 SecureTech is an integrated IT, cybersecurity, electronics and technology solutions provider — combining custom software development, IoT and automation, network infrastructure, cybersecurity, CCTV and biometric security, telephone systems, electronics repair, cloud services and TESDA-aligned technical training under one accountable team.',
+    'J2 SecureTech is an integrated IT, cybersecurity, electronics and technology solutions provider — combining software and system development, IoT and automation, IT infrastructure and networking, cybersecurity, CCTV and security systems, telephone and communication systems, electronics and board-level repair, and TESDA-aligned technical training under one accountable team.',
   shortDescription:
     'Enterprise software, secure networks, cybersecurity and surveillance infrastructure — engineered, installed and maintained by one accountable team.',
   founded: 2016,
@@ -58,10 +58,11 @@ export const COMPANY_INFO = {
     'Fiber Optic Installation',
     'IP Telephony & VoIP',
     'Electronics Repair Services',
+    'Board-Level Repair',
     'IT Solutions Philippines',
-    'Cloud Solutions',
-    'IT Consultancy',
+    'System Integration & Automation',
     'TESDA Technical Training',
+    'CSS NC II & EPAS NC II',
     'Cybersecurity Training',
   ],
   social: {
@@ -70,6 +71,17 @@ export const COMPANY_INFO = {
     twitter: 'https://twitter.com/j2securetech',
     github: 'https://github.com/j2securetech',
   },
+} as const;
+
+/**
+ * The company commitment statement, rendered on the About page and echoed as a
+ * band on the home page. Kept here so both surfaces stay identical.
+ */
+export const COMMITMENT = {
+  headline: "We don't just provide technology—we provide solutions.",
+  body: 'We combine software development, IT infrastructure, networking, cybersecurity, IoT, and electronics expertise to deliver technology solutions that are practical, secure, scalable, and tailored to our clients’ needs.',
+  scope:
+    'Whether you are looking to develop a customized system, build a secure network, protect your organization from cyber threats, install a CCTV system, automate a process, repair electronic equipment, or train your personnel, J2 SecureTech is ready to help turn your technology needs into effective solutions.',
 } as const;
 
 export type NavLink = {
@@ -87,16 +99,10 @@ export const NAV_LINKS: NavLink[] = [
     href: '/services',
     children: [
       {
-        label: 'Software Development',
+        label: 'Software & System Development',
         href: '/services/software-development',
-        description: 'ERP, POS, HRMS and bespoke line-of-business systems',
+        description: 'Websites, custom applications and management systems',
         icon: 'Code2',
-      },
-      {
-        label: 'Website Development',
-        href: '/services/website-development',
-        description: 'Corporate sites, web apps and e-commerce platforms',
-        icon: 'Globe',
       },
       {
         label: 'IoT & Automation',
@@ -105,40 +111,46 @@ export const NAV_LINKS: NavLink[] = [
         icon: 'Radio',
       },
       {
-        label: 'Network Infrastructure',
+        label: 'IT Infrastructure & Network',
         href: '/services/network-infrastructure',
-        description: 'Fiber, structured cabling, Wi-Fi and firewalls',
+        description: 'Network design, servers, firewalls and optimisation',
         icon: 'Network',
       },
       {
         label: 'Cybersecurity',
         href: '/services/cybersecurity-solutions',
-        description: 'Vulnerability assessment, monitoring and hardening',
+        description: 'Detection, monitoring, assessment and hardening',
         icon: 'ShieldAlert',
       },
       {
-        label: 'CCTV Installation',
+        label: 'CCTV & Security Systems',
         href: '/services/cctv-installation',
-        description: 'IP surveillance, biometrics and access control',
+        description: 'IP cameras, monitoring and security integration',
         icon: 'ShieldCheck',
       },
       {
-        label: 'Telephone & VoIP',
+        label: 'Telephone & Communication',
         href: '/services/telephone-communication-systems',
-        description: 'PABX, IP telephony and intercom systems',
+        description: 'Telephone systems, VoIP and intercom',
         icon: 'Phone',
       },
       {
-        label: 'Electronics Repair',
+        label: 'Electronics & Board-Level',
         href: '/services/electronics-board-level-repair',
         description: 'Board-level diagnostics and component repair',
         icon: 'CircuitBoard',
       },
       {
-        label: 'Technical Training',
+        label: 'Technology Training',
         href: '/services/technology-training-seminars',
-        description: 'Seminars, workshops and TESDA-aligned programmes',
+        description: 'Seminars and workshops for teams and institutions',
         icon: 'GraduationCap',
+      },
+      {
+        label: 'TESDA Technical Training',
+        href: '/services/tesda-technical-training',
+        description: 'CSS NC II, EPAS NC II and Java Programming NC III',
+        icon: 'Award',
       },
     ],
   },
@@ -150,15 +162,15 @@ export const NAV_LINKS: NavLink[] = [
 
 export const FOOTER_NAV = {
   services: [
-    { label: 'Enterprise Software', href: '/services/software-development' },
-    { label: 'Website & E-Commerce', href: '/services/website-development' },
+    { label: 'Software & System Development', href: '/services/software-development' },
     { label: 'IoT & Automation', href: '/services/iot-automation-solutions' },
+    { label: 'IT Infrastructure & Network', href: '/services/network-infrastructure' },
     { label: 'Cybersecurity', href: '/services/cybersecurity-solutions' },
-    { label: 'CCTV & Biometrics', href: '/services/cctv-installation' },
-    { label: 'Network Infrastructure', href: '/services/network-infrastructure' },
-    { label: 'Telephone & VoIP', href: '/services/telephone-communication-systems' },
-    { label: 'Electronics Repair', href: '/services/electronics-board-level-repair' },
-    { label: 'Technical Training', href: '/services/technology-training-seminars' },
+    { label: 'CCTV & Security Systems', href: '/services/cctv-installation' },
+    { label: 'Telephone & Communication', href: '/services/telephone-communication-systems' },
+    { label: 'Electronics & Board-Level', href: '/services/electronics-board-level-repair' },
+    { label: 'Technology Training', href: '/services/technology-training-seminars' },
+    { label: 'TESDA Technical Training', href: '/services/tesda-technical-training' },
     { label: 'All Services', href: '/services' },
   ],
   company: [
@@ -201,7 +213,7 @@ export const VALUE_PROPS = [
   {
     title: 'Single accountable partner',
     description:
-      'Software, cabling, surveillance and cloud delivered by one team — no finger-pointing between vendors when something needs fixing.',
+      'Software, cabling, surveillance and electronics delivered by one team — no finger-pointing between vendors when something needs fixing.',
     icon: 'ShieldCheck',
   },
   {
@@ -271,31 +283,33 @@ export const DELIVERY_PROCESS = [
 
 /** Fallback service taxonomy used by the quote form's service selector. */
 export const SERVICE_OPTIONS = [
-  'Enterprise Software Development',
-  'ERP / CRM Implementation',
-  'POS & Inventory System',
-  'Payroll & HRMS',
-  'School Management System',
-  'Hospital Management System',
-  'Warehouse Management System',
-  'Corporate Website Development',
-  'E-Commerce Platform',
-  'Booking & Reservation System',
-  'IoT & Smart Monitoring System',
-  'Arduino / ESP32 / Robotics Project',
-  'CCTV Supply & Installation',
-  'Biometric & Access Control',
-  'Cybersecurity Assessment & Monitoring',
-  'Structured Cabling & LAN',
-  'Fiber Optic Installation',
-  'Server Room & Rack Setup',
-  'Enterprise Wi-Fi Solution',
-  'Firewall & Network Security',
-  'Telephone / PABX / VoIP System',
-  'Electronics & Board-Level Repair',
-  'Cloud Migration & Hosting',
-  'IT Consultancy',
-  'Annual Maintenance Contract',
+  'Website Development',
+  'Custom System & Application Development',
+  'Database & Information Management System',
+  'Business or School Management System',
+  'System Integration & Automation',
+  'IoT System Development',
+  'Smart Monitoring & Automation System',
+  'Arduino / ESP32 / Microcontroller Project',
+  'Robotics & Embedded Systems',
+  'IT Infrastructure Design & Implementation',
+  'Computer Network Design & Installation',
+  'Server Configuration & Administration',
+  'Router / Switch / Firewall Configuration',
+  'Network Troubleshooting & Optimization',
+  'Cybersecurity Detection & Prevention',
+  'Vulnerability Assessment',
+  'Security Monitoring',
+  'Cybersecurity Awareness & Training',
+  'CCTV Installation & Configuration',
+  'IP Camera & Network CCTV System',
+  'Security System Integration',
+  'Telephone System Installation',
+  'IP Telephony / VoIP Solution',
+  'Intercom & Communication System',
+  'Electronics Troubleshooting & Repair',
+  'Board-Level & Component-Level Repair',
+  'Preventive & Corrective Maintenance',
   'Technology Training / Seminar',
   'TESDA Technical Training (CSS/EPAS/Java NC)',
   'Other / Not listed',

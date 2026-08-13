@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const SUGGESTIONS = [
-  { label: 'Services', href: '/services', description: 'Software, security, networking and cloud' },
+  { label: 'Services', href: '/services', description: 'Software, IoT, networking, security and training' },
   { label: 'Portfolio', href: '/portfolio', description: 'Case studies from live deployments' },
   { label: 'Blog', href: '/blog', description: 'Engineering insights and guidance' },
   { label: 'Contact', href: '/contact', description: 'Talk to our solutions team' },

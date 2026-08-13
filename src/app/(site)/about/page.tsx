@@ -8,7 +8,7 @@ import { Counter } from '@/components/shared/Counter';
 import { ProcessSection } from '@/components/sections/ProcessSection';
 import { CallToAction } from '@/components/sections/CallToAction';
 import { Button } from '@/components/ui/button';
-import { CERTIFICATIONS, COMPANY_INFO, STATS, VALUE_PROPS } from '@/lib/constants';
+import { CERTIFICATIONS, COMMITMENT, COMPANY_INFO, STATS, VALUE_PROPS } from '@/lib/constants';
 import { Icon } from '@/components/shared/Icon';
 import { getSettings } from '@/lib/data/settings';
 import { breadcrumbSchema, buildMetadata } from '@/lib/seo';
@@ -144,6 +144,27 @@ export default async function AboutPage() {
               </StaggerItem>
             ))}
           </StaggerGroup>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-surface/40 py-24" aria-labelledby="our-commitment">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary">
+              Our commitment
+            </p>
+            <h2
+              id="our-commitment"
+              className="mt-5 font-heading text-3xl font-bold text-foreground sm:text-4xl"
+            >
+              At {COMPANY_INFO.name}, {COMMITMENT.headline}
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted">{COMMITMENT.body}</p>
+            <p className="mt-4 text-base leading-relaxed text-muted">{COMMITMENT.scope}</p>
+            <p className="mt-10 font-heading text-lg font-semibold text-secondary">
+              {COMPANY_INFO.fullTagline}
+            </p>
+          </Reveal>
         </div>
       </section>
 

@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = buildMetadata({
   title: 'Request a Quote',
   description:
-    'Request a documented proposal for enterprise software, website and e-commerce development, CCTV installation, structured cabling, networking or cloud services.',
+    'Request a documented proposal for software and system development, IoT and automation, IT infrastructure and networking, cybersecurity, CCTV, telephone systems, electronics repair or technical training.',
   path: '/request-quote',
 });
 
